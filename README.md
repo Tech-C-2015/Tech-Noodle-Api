@@ -6,6 +6,7 @@ name => 店舗名
 prefecture => 都道府県
 region => 市区村町
 station => 駅名
+
 ** ※順番任意 **
 
 例：
