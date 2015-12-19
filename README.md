@@ -1,19 +1,19 @@
-## ƒeƒXƒgURL
+## ãƒ†ã‚¹ãƒˆURL
 [AWS](http://54.238.199.32/api/public/noodle/list)
 
-## ƒpƒ‰ƒ[ƒ^
-name => “X•Ü–¼
-prefecture => “s“¹•{Œ§
-region => s‹æ‘º’¬
-station => ‰w–¼
-** ¦‡”Ô”CˆÓ **
+## ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+name => åº—èˆ—å
+prefecture => éƒ½é“åºœçœŒ
+region => å¸‚åŒºæ‘ç”º
+station => é§…å
+** â€»é †ç•ªä»»æ„ **
 
-—áF
+ä¾‹ï¼š
 ```
-http://54.238.199.32/api/public/noodle/list?prefcture=“Œ‹&name=“Œ‹
+http://54.238.199.32/api/public/noodle/list?prefcture=æ±äº¬&name=æ±äº¬
 ```
 
-## ŠÇ—‰æ–Ê
-[ŠÇ—‰æ–Ê](http://54.238.199.32/api/public/noodle/login)
+## ç®¡ç†ç”»é¢
+[ç®¡ç†ç”»é¢](http://54.238.199.32/api/public/noodle/login)
 
-[ƒtƒƒ“ƒgƒeƒXƒgƒŠƒ“k](http://54.238.199.32/api/public/noodle/test)
+[ãƒ•ãƒ­ãƒ³ãƒˆãƒ†ã‚¹ãƒˆãƒªãƒ³](http://54.238.199.32/api/public/noodle/test)
