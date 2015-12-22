@@ -78,7 +78,7 @@ class Controller_Noodle extends Controller_Base
 		$data['noodles'] = Model_Noodle::find('all',$options);
 		$this->template->title = "Noodles";
 		$this->template->content = View::forge('noodle/index', $data);
-		$this->template->content->set_safe('pn',$pagination);
+		$this->template->content->set_safe('pagination',$pagination);
 
 	}
 
@@ -249,7 +249,7 @@ class Controller_Noodle extends Controller_Base
 			$options['or_where'] []= array($key,'like','%'.$val.'%');
 		}
 		#カラムの設定
-		$options['select'] = array('name','prefecture','region','address','tel','station','link');
+		$options['select'] = array('name','prefecture','region','address','tel','station','link','image');
 		$options['limit'] = 60;
 		#json dataの取得
 		$json = Model_Noodle::find('all',$options);

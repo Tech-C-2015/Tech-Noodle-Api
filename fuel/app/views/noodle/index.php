@@ -27,8 +27,8 @@
 			<td><?php echo $item->tel; ?></td>
 			<td><?php echo $item->open; ?></td>
 			<td><?php echo $item->station; ?></td>
-			<td><?php echo $item->image; ?></td>
-			<td><?php echo $item->link; ?></td>
+			<td><?php echo Html::img($item->image,array('width'=>'50px','height'=>'50px')); ?></td>
+			<td><?php echo $item->link === '不明' ? $item->link : Html::anchor($item->link,'関連リンク'); ?></td>
 			<td><?php echo $item->tag; ?></td>
 			<td>
 				<div class="btn-toolbar">
@@ -40,6 +40,8 @@
 		</tr>
 <?php endforeach; ?>	</tbody>
 </table>
+
+<?php echo $pagination;?>
 
 <?php else: ?>
 <p>No Noodles.</p>
