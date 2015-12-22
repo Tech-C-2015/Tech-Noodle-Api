@@ -1,7 +1,7 @@
 ## テストURL
-[AWS](http://54.238.199.32/api/public/noodle/list)
+[AWS](http://52.192.112.91/Tech-Noodle-Api/public/noodle/list)
 
-## パラメータ
+### パラメータ
 name => 店舗名
 prefecture => 都道府県
 region => 市区村町
@@ -10,10 +10,13 @@ station => 駅名
 
 例：
 ```
-http://54.238.199.32/api/public/noodle/list?prefcture=東京&name=東京
+http://52.192.112.91/Tech-Noodle-Api/public/noodle/list?prefcture=東京&name=東京
 ```
 
-## 管理画面
-[管理画面](http://54.238.199.32/api/public/noodle/login)
+### 管理画面
+[管理画面](http://52.192.112.91/Tech-Noodle-Api/public/noodle/login)
 
-[フロントテストリン](http://54.238.199.32/api/public/noodle/test)
+[フロントテストリン](http://52.192.112.91/Tech-Noodle-Api/public/noodle/test)
+
+###clone
+`git clone --recursive https://github.com/Tech-C-2015/Tech-Noodle-Api`
