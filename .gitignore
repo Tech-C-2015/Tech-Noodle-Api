@@ -1,0 +1,19 @@
+empty
+
+# Mac
+__MACOSX
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+desktop.ini
+
+Icon?
+ehthumbs.db
+
+tmp/
+logs/
+*.swp

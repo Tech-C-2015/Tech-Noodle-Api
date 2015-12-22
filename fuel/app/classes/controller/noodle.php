@@ -1,12 +1,84 @@
 <?php
-class Controller_Noodle extends Controller_Template
+class Controller_Noodle extends Controller_Base
 {
+	protected $format = 'json';
+	private $fields = array('name','prefecture','region','station');
+
+	public function before()
+	{
+		parent::before();
+		if(!in_array(Request::active()->action,array('list','login','test')))
+		{
+			if(!Auth::check())
+			{
+				Session::set_flash('error','ログインしてください。');
+				Response::redirect('noodle/login');
+			}
+		}
+	}
+
+	public function action_login()
+	{
+		Auth::check() and Response::redirect('noodle');	
+
+		$data = array();
+		$val = Validation::forge();
+		if(Input::method() == 'POST')
+		{
+			$val->add('username','Username')->add_rule('required');
+			$val->add('password','Password')->add_rule('required');
+		
+			if($val->run())
+			{
+				if(!Auth::check())
+				{
+					if(Auth::login(Input::post('username'),Input::post('password')))
+					{
+						Session::set_flash('success','ログインできました');
+						Response::redirect('noodle');
+					}
+					else
+					{
+						$data['error'] = 'ログイン失敗しました。';
+					}
+				}
+			}
+			else
+			{
+				$data['error'] = 'username,passを入れてください。';
+			}
+		}
+		$this->template->title = 'ログイン';
+		$this->template->content = View::forge('noodle/login',$data);
+
+	}
+
+	public function action_logout()
+	{
+		Auth::logout();
+		Session::set_flash('error','ログアウトしました。');
+		Response::redirect('noodle/login');		
+	}
 
 	public function action_index()
 	{
-		$data['noodles'] = Model_Noodle::find('all');
+		#ページネーション
+		$count = Model_Noodle::count();
+		$config = array(
+			'pagination_url' => Uri::base().'noodle/index',
+			'uri_segment' => 3,
+			'per_page' => 4,
+			'total_items' => $count
+		);
+		$pagination = Pagination::forge('noodle_page',$config);
+		$options = array(
+			'limit' => $pagination->per_page,
+			'offset' => $pagination->offset,
+		);
+		$data['noodles'] = Model_Noodle::find('all',$options);
 		$this->template->title = "Noodles";
 		$this->template->content = View::forge('noodle/index', $data);
+		$this->template->content->set_safe('pn',$pagination);
 
 	}
 
@@ -153,4 +225,42 @@ class Controller_Noodle extends Controller_Template
 
 	}
 
+	/*
+	 * $region 地域名
+	 * $station 駅名
+	 * $prefecture 都道府県
+	 * $name 店名 
+	 */
+	public function	get_list()
+	{
+		#パラメータない場合
+		if(!$count = count(Input::get())) return 'パラメータを入れてください';
+
+		#パラメータの格納　nullの排除
+		foreach($this->fields as $field)
+		{
+			$val = Input::get($field);
+			if(empty($val)) continue;
+			!is_null($val) and  $params[$field] = $val;
+		}
+		#queryの生成
+		foreach($params as $key => $val)
+		{
+			$options['or_where'] []= array($key,'like','%'.$val.'%');
+		}
+		#カラムの設定
+		$options['select'] = array('name','prefecture','region','address','tel','station','link');
+		$options['limit'] = 60;
+		#json dataの取得
+		$json = Model_Noodle::find('all',$options);
+		return $json;
+
+	}	
+
+	public function action_test()
+	{
+		$this->template->title = 'test';
+		$this->template->content = View::forge('noodle/test');
+	}
 }
+

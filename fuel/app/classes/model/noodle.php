@@ -38,11 +38,7 @@ class Model_Noodle extends Model
 		$val->add_field('region', 'Region', 'required|max_length[255]');
 		$val->add_field('address', 'Address', 'required|max_length[255]');
 		$val->add_field('tel', 'Tel', 'required|max_length[255]');
-		$val->add_field('open', 'Open', 'required|max_length[255]');
 		$val->add_field('station', 'Station', 'required|max_length[255]');
-		$val->add_field('image', 'Image', 'required|max_length[255]');
-		$val->add_field('link', 'Link', 'required|max_length[255]');
-		$val->add_field('tag', 'Tag', 'required|max_length[255]');
 
 		return $val;
 	}
