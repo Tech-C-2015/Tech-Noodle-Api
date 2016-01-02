@@ -255,6 +255,49 @@ class Controller_Noodle extends Controller_Base
 		$json = Model_Noodle::find('all',$options);
 		return $json;
 
+	}
+    
+	/**
+     * get_list() メソッドの機能追加版
+     *
+     * pagenationを実装
+	 * $region 地域名
+	 * $station 駅名
+	 * $prefecture 都道府県
+	 * $name 店名 
+	 */
+	public function	get_exlist()
+	{
+		#パラメータない場合
+		if(!$count = count(Input::get())) return 'パラメータを入れてください';
+
+		#パラメータの格納　nullの排除
+		foreach($this->fields as $field)
+		{
+			$val = Input::get($field);
+			if(empty($val)) continue;
+			!is_null($val) and  $params[$field] = $val;
+		}
+		#queryの生成
+		foreach($params as $key => $val)
+		{
+			$options['or_where'] []= array($key,'like','%'.$val.'%');
+		}
+		#カラムの設定
+		$options['select'] = array('name','prefecture','region','address','tel','station','link','image');
+
+        // ページング機能
+        Input::get('size')?$options['limit'] = Input::get('size') : $options['limit'] = 60;
+        $page = intval(Input::get('page'));
+        if($page){
+             // XXX: pageは0から始まるつもり。1から始まるなら $page に -1 をつける
+            $options['offset'] = $page * $options['limit'];
+        }
+		
+		#json dataの取得
+		$json = Model_Noodle::find('all',$options);
+		return $json;
+
 	}	
 
 	public function action_test()
