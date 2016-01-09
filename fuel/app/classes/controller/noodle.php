@@ -7,7 +7,7 @@ class Controller_Noodle extends Controller_Base
 	public function before()
 	{
 		parent::before();
-		if(!in_array(Request::active()->action,array('list','login','test')))
+		if(!in_array(Request::active()->action,array('exlist','list','login','test')))
 		{
 			if(!Auth::check())
 			{
@@ -293,8 +293,10 @@ class Controller_Noodle extends Controller_Base
              // XXX: pageは0から始まるつもり。1から始まるなら $page に -1 をつける
             $options['offset'] = $page * $options['limit'];
         }
-		
-		#json dataの取得
+		#ヘッダー設定
+		header("Content-Type: application/json; charset=utf-8");
+
+		#json dataの取e
 		$json = Model_Noodle::find('all',$options);
 		return $json;
 

@@ -6,11 +6,13 @@ name => 店舗名
 prefecture => 都道府県
 region => 市区村町
 station => 駅名
+size		=> 件数　(default:60件)
+page		=> 0から始める (default:0)
 ** ※順番任意 **
 
 例：
 ```
-http://52.192.112.91/Tech-Noodle-Api/public/noodle/list?prefcture=東京&name=東京
+http://52.192.112.91/Tech-Noodle-Api/public/noodle/exlist?prefcture=東京&name=東京
 ```
 
 ### 管理画面
