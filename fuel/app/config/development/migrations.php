@@ -8,10 +8,7 @@ return array(
       array(
         0 => '001_create_noodles',
         1 => '002_create_reviews',
-        2 => '003_add_rank_and_link_to_reviews',
-        3 => '003_add_rank_to_reviews',
-        4 => '003_add_rankt_to_reviews',
-        5 => '003_add_shop_id_and_link_to_reviews',
+        2 => '003_add_rankt_to_reviews',
       ),
     ),
     'module' => 
