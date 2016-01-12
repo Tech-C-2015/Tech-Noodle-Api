@@ -1,6 +1,6 @@
 empty
-format.php
-db.php
+
+fuel/app/config/development/db.php
 
 # Mac
 __MACOSX
