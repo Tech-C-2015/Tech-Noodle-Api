@@ -1,5 +1,7 @@
 empty
 
+fuel/app/config/development/db.php
+
 # Mac
 __MACOSX
 .DS_Store
