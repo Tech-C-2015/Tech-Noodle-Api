@@ -20,6 +20,12 @@
 
 		</div>
 		<div class="form-group">
+			<?php echo Form::label('rank', 'rank', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('rank', Input::post('rank', isset($review) ? $review->rank : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'rank')); ?>
+
+		</div>
+		<div class="form-group">
 			<label class='control-label'>&nbsp;</label>
 			<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-primary')); ?>		</div>
 	</fieldset>

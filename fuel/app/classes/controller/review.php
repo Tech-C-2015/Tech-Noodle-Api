@@ -49,6 +49,7 @@ class Controller_Review extends Controller_Base
 					'user_name' => Input::post('user_name'),
 					'review' => Input::post('review'),
 					'shop_id' => Input::post('shop_id'),
+					'rank' => Input::post('rank'),
 				));
 
 				if ($review and $review->save())
@@ -91,6 +92,7 @@ class Controller_Review extends Controller_Base
 			$review->user_name = Input::post('user_name');
 			$review->review = Input::post('review');
 			$review->shop_id = Input::post('shop_id');
+			$review->rank = Input::post('rank');
 
 			if ($review->save())
 			{

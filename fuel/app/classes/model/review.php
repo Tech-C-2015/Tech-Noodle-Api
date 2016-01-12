@@ -10,6 +10,7 @@ class Model_Review extends Model
 		'shop_id',
 		'created_at',
 		'updated_at',
+		'rank',
 	);
 
 	protected static $_observers = array(

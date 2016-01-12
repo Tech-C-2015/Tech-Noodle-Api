@@ -7,6 +7,7 @@
 			<th>User name</th>
 			<th>Review</th>
 			<th>Shop id</th>
+			<th>Rank</th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
@@ -16,6 +17,7 @@
 			<td><?php echo $item->user_name; ?></td>
 			<td><?php echo $item->review; ?></td>
 			<td><?php echo $item->shop_id; ?></td>
+			<td><?php echo $item->rank; ?></td>
 			<td>
 				<div class="btn-toolbar">
 					<div class="btn-group">
