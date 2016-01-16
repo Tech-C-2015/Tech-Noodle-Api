@@ -56,7 +56,8 @@ class Controller_Review extends Controller_Base
 				{
 					Session::set_flash('success', 'Added review #'.$review->id.'.');
 
-					Response::redirect('review');
+					Response::redirect(Input::referrer());
+					#Response::redirect('review');
 				}
 
 				else
@@ -67,6 +68,7 @@ class Controller_Review extends Controller_Base
 			else
 			{
 				Session::set_flash('error', $val->error());
+				Response::redirect(Input::referrer());
 			}
 		}
 
