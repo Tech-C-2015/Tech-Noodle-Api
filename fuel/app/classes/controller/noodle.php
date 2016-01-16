@@ -2,7 +2,7 @@
 class Controller_Noodle extends Controller_Base
 {
 	protected $format = 'json';
-	private $fields = array('name','prefecture','region','station');
+	private $fields = array('name','prefecture','region','station','tag');
 
 	public function before()
 	{
@@ -252,7 +252,7 @@ class Controller_Noodle extends Controller_Base
 			$options['or_where'] []= array($key,'like','%'.$val.'%');
 		}
 		#カラムの設定
-		$options['select'] = array('name','prefecture','region','address','tel','station','link','image');
+		$options['select'] = array('name','prefecture','region','address','tel','station','link','image','tag');
 
 	        // ページング機能
 	        (int)Input::get('limit') !== 0 ?$options['limit'] = Input::get('limit') : $options['limit'] = 60;
