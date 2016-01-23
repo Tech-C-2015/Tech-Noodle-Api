@@ -9,6 +9,7 @@ $(function(){
 						url: "<?php echo Uri::create('noodle/list');?>",
 						data: param 
 					}).done(function(data){
+console.log(data);
 						if(!data) {
 							$('<p>').append('結果無し').appendTo($('#result'));
 							return false;

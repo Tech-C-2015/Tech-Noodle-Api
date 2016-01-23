@@ -251,6 +251,8 @@ class Controller_Noodle extends Controller_Base
 		{
 			$options['or_where'] []= array($key,'like','%'.$val.'%');
 		}
+		#合計の取得
+		$total = Model_Noodle::query()->count();
 		#カラムの設定
 		$options['select'] = array('name','prefecture','region','address','tel','station','link','image','tag');
 
@@ -264,6 +266,7 @@ class Controller_Noodle extends Controller_Base
 
 		#json dataの取e
 		$json = Model_Noodle::find('all',$options);
+		$json['total'] = $total;
 		return $json;
 
 	}	
