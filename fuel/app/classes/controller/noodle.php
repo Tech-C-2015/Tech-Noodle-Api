@@ -251,11 +251,11 @@ class Controller_Noodle extends Controller_Base
 		{
 			$options['or_where'] []= array($key,'like','%'.$val.'%');
 		}
-		#合計の取得
-		$total = Model_Noodle::query()->count();
 		#カラムの設定
 		$options['select'] = array('name','prefecture','region','address','tel','station','link','image','tag');
 
+		$total = Model_Noodle::find('all',$options);
+		$json['total'] = count($total);
 	        // ページング機能
 	        (int)Input::get('limit') !== 0 ?$options['limit'] = Input::get('limit') : $options['limit'] = 60;
 	        $options['offset'] = intval(Input::get('offset'));
@@ -265,8 +265,7 @@ class Controller_Noodle extends Controller_Base
 		header("Content-Type: application/json; charset=utf-8");
 
 		#json dataの取e
-		$json = Model_Noodle::find('all',$options);
-		$json['total'] = $total;
+		$json['info'] = Model_Noodle::find('all',$options);
 		return $json;
 
 	}	

@@ -9,12 +9,11 @@ $(function(){
 						url: "<?php echo Uri::create('noodle/list');?>",
 						data: param 
 					}).done(function(data){
-console.log(data);
-						if(!data) {
+						if(data.info.length === 0) {
 							$('<p>').append('結果無し').appendTo($('#result'));
 							return false;
 						}
-						$.each(data,function(index,d){
+						$.each(data.info,function(index,d){
 							$('<li>').addClass('list-group').append(d.name+''+d.prefecture+''+d.region+''+d.address+'電話:'+d.tel+''+d.station).appendTo($('#result'));
 						});
 					});
