@@ -1,5 +1,5 @@
 # ドキュメント参考ＵＲＬ
-[http://133.130.106.164/Tech-Noodle-Api/public/noodle/test]http://133.130.106.164/Tech-Noodle-Api/public/noodle/test
+[こちらから参照してください。]http://133.130.106.164/Tech-Noodle-Api/public/noodle/test
 
 ## テストURL
 [AWS](http://133.130.106.164/Tech-Noodle-Api/public/noodle/list)
