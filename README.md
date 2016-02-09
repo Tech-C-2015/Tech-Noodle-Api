@@ -1,3 +1,6 @@
+# ドキュメント参考ＵＲＬ
+[http://133.130.106.164/Tech-Noodle-Api/public/noodle/test]http://133.130.106.164/Tech-Noodle-Api/public/noodle/test
+
 ## テストURL
 [AWS](http://133.130.106.164/Tech-Noodle-Api/public/noodle/list)
 
@@ -20,7 +23,7 @@ rank    => ランキング
 例：
 ```
 #店舗一覧取得
-http://133.130.106.164/Tech-Noodle-Api/public/noodle/list?prefcture=東京&name=東京
+http://133.130.106.164/Tech-Noodle-Api/public/noodle/list?prefecture=東京&name=東京
 
 #店舗口コミ取得
 http://133.130.106.164/Tech-Noodle-Api/public/review/review?id=[shop_id]
